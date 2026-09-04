@@ -1,0 +1,673 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Georgia, serif;
+    background: #0b0b0b;
+    color: #f5f1eb;
+}
+
+
+/* INTRO */
+
+.intro {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+
+    position: relative;
+    overflow: hidden;
+}
+
+
+.intro-content {
+    opacity: 0;
+    transform: translateY(30px);
+
+    animation: introAppear 2s ease forwards;
+}
+
+
+.date {
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    letter-spacing: 6px;
+    opacity: 0.5;
+    margin-bottom: 30px;
+}
+
+
+h1 {
+    font-size: clamp(55px, 9vw, 110px);
+    font-weight: 400;
+    letter-spacing: -3px;
+}
+
+
+.intro-text {
+    margin-top: 25px;
+
+    font-size: 20px;
+    font-style: italic;
+
+    opacity: 0.65;
+}
+
+
+button {
+    margin-top: 50px;
+
+    padding: 14px 28px;
+
+    background: transparent;
+    color: white;
+
+    border: 1px solid rgba(255,255,255,0.3);
+    border-radius: 50px;
+
+    font-size: 15px;
+
+    cursor: pointer;
+
+    transition: 0.4s ease;
+}
+
+
+button span {
+    margin-left: 8px;
+}
+
+
+button:hover {
+    background: white;
+    color: black;
+    transform: translateY(-3px);
+}
+
+
+/* MEMORY */
+
+.memory {
+    min-height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    text-align: center;
+
+    padding: 60px 25px;
+}
+
+
+.memory-number {
+    font-family: Arial, sans-serif;
+    font-size: 13px;
+    letter-spacing: 4px;
+    opacity: 0.4;
+    margin-bottom: 25px;
+}
+
+
+.memory h2 {
+    font-size: clamp(35px, 6vw, 70px);
+    font-weight: 400;
+}
+
+
+.memory-text {
+    max-width: 600px;
+
+    margin-top: 30px;
+
+    font-size: 19px;
+    line-height: 1.8;
+
+    opacity: 0.65;
+}
+
+
+@keyframes introAppear {
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+}
+/* =========================================
+   MEMORY 01 — THE PEN
+   ========================================= */
+
+.memory-one {
+    min-height: 150vh;
+    padding: 150px 30px;
+    overflow: hidden;
+}
+
+
+/* INTRO */
+
+.memory-intro {
+    text-align: center;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+
+.memory-label {
+    font-family: Arial, sans-serif;
+    font-size: 11px;
+    letter-spacing: 5px;
+    opacity: 0.35;
+    margin-bottom: 30px;
+}
+
+
+.memory-one h2 {
+    font-size: clamp(70px, 12vw, 170px);
+    line-height: 0.9;
+    letter-spacing: -5px;
+    font-weight: 400;
+}
+
+
+.memory-opening {
+    margin-top: 35px;
+    font-size: 20px;
+    font-style: italic;
+    opacity: 0.5;
+}
+
+
+/* PEN AREA */
+
+.pen-memory {
+    width: min(1100px, 90vw);
+    margin: 180px auto 0;
+
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr;
+    gap: 100px;
+
+    align-items: center;
+}
+
+
+/* IMAGE */
+
+.pen-image-wrap {
+    position: relative;
+    overflow: hidden;
+
+    width: 100%;
+    min-height: 220px;
+
+    background: #111;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    transform: translateY(60px);
+    opacity: 0;
+
+    animation: penReveal 1.5s cubic-bezier(.2,.7,.2,1) forwards;
+}
+
+
+.pen-image-wrap::after {
+    content: "";
+
+    position: absolute;
+    inset: 0;
+
+    background: linear-gradient(
+        120deg,
+        transparent 20%,
+        rgba(255,255,255,0.12),
+        transparent 80%
+    );
+
+    transform: translateX(-100%);
+
+    animation: shine 2s 1s ease forwards;
+}
+
+
+.pen-image-wrap img {
+    width: 100%;
+    max-width: 900px;
+    display: block;
+
+    filter: grayscale(15%);
+
+    transform: scale(1.12);
+
+    animation: imageSettle 2s cubic-bezier(.2,.7,.2,1) forwards;
+}
+
+/* STORY */
+
+.pen-story {
+    font-size: 21px;
+    line-height: 1.9;
+}
+
+
+.pen-story p {
+    margin-bottom: 35px;
+
+    opacity: 0;
+    transform: translateY(25px);
+
+    animation: storyAppear 1s ease forwards;
+}
+
+
+.pen-story p:nth-child(1) {
+    animation-delay: 1.2s;
+}
+
+
+.pen-story p:nth-child(2) {
+    animation-delay: 1.8s;
+}
+
+
+.pen-story .highlight {
+    font-size: 32px;
+    font-style: italic;
+
+    opacity: 0;
+
+    animation-delay: 2.5s;
+}
+
+
+/* CONTINUE */
+
+.continue-text {
+    margin-top: 180px;
+
+    text-align: center;
+
+    font-family: Arial, sans-serif;
+    font-size: 12px;
+
+    letter-spacing: 4px;
+
+    opacity: 0.35;
+}
+
+
+.continue-text .arrow {
+    display: block;
+
+    margin-top: 18px;
+
+    font-size: 22px;
+
+    animation: arrowFloat 2s ease-in-out infinite;
+}
+
+
+/* ANIMATIONS */
+
+@keyframes penReveal {
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+}
+
+
+@keyframes imageSettle {
+
+    to {
+        transform: scale(1);
+    }
+
+}
+
+
+@keyframes shine {
+
+    to {
+        transform: translateX(100%);
+    }
+
+}
+
+
+@keyframes storyAppear {
+
+    to {
+        opacity: 0.8;
+        transform: translateY(0);
+    }
+
+}
+
+
+@keyframes arrowFloat {
+
+    0%, 100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(8px);
+    }
+
+}
+
+
+/* MOBILE */
+
+@media (max-width: 700px) {
+
+    .memory-one {
+        padding: 100px 20px;
+    }
+
+    .memory-one h2 {
+        letter-spacing: -3px;
+    }
+
+    .pen-memory {
+        grid-template-columns: 1fr;
+        gap: 60px;
+        margin-top: 120px;
+    }
+
+    .pen-story {
+        font-size: 18px;
+    }
+
+    .pen-story .highlight {
+        font-size: 27px;
+    }
+
+}
+/* =========================================
+   MEMORY 02 — THE CALLS
+   ========================================= */
+
+.memory-two {
+    min-height: 190vh;
+    padding: 180px 25px;
+    overflow: hidden;
+}
+
+
+/* INTRO */
+
+.call-intro {
+    text-align: center;
+}
+
+.memory-two h2 {
+    font-size: clamp(80px, 14vw, 190px);
+    font-weight: 400;
+    letter-spacing: -7px;
+    line-height: 0.85;
+}
+
+.call-opening {
+    margin-top: 35px;
+    font-size: 19px;
+    font-style: italic;
+    opacity: 0.45;
+}
+
+
+/* STORY */
+
+.call-story {
+    width: min(700px, 90vw);
+    margin: 220px auto 0;
+}
+
+.reveal-text {
+    font-size: clamp(20px, 2.5vw, 28px);
+    line-height: 1.9;
+    margin: 140px 0;
+
+    opacity: 0;
+    transform: translateY(35px);
+
+    animation: callReveal 1.2s ease forwards;
+}
+
+
+/* BIG CONFESSION */
+
+.big-line {
+    text-align: center;
+    font-size: clamp(45px, 7vw, 90px);
+    font-style: italic;
+}
+
+.big-line span {
+    display: inline-block;
+}
+
+
+/* APOLOGY */
+
+.apology {
+    margin-top: 220px;
+    padding: 100px 30px;
+
+    text-align: center;
+
+    border-top: 1px solid rgba(255,255,255,0.12);
+    border-bottom: 1px solid rgba(255,255,255,0.12);
+}
+
+.apology-small {
+    font-family: Arial, sans-serif;
+    font-size: 11px;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    opacity: 0.35;
+}
+
+.apology h3 {
+    margin: 25px 0 40px;
+
+    font-size: clamp(50px, 8vw, 100px);
+    font-weight: 400;
+}
+
+.apology p:not(.apology-small) {
+    max-width: 550px;
+    margin: 25px auto;
+
+    font-size: 19px;
+    line-height: 1.9;
+
+    opacity: 0.65;
+}
+
+
+/* ANIMATION */
+
+@keyframes callReveal {
+
+    from {
+        opacity: 0;
+        transform: translateY(35px);
+    }
+
+    to {
+        opacity: 0.85;
+        transform: translateY(0);
+    }
+
+}
+
+
+/* MOBILE */
+
+@media (max-width: 700px) {
+
+    .memory-two {
+        padding: 120px 20px;
+    }
+
+    .memory-two h2 {
+        letter-spacing: -4px;
+    }
+
+    .call-story {
+        margin-top: 140px;
+    }
+
+    .reveal-text {
+        margin: 100px 0;
+        font-size: 19px;
+    }
+
+    .apology {
+        padding: 70px 20px;
+    }
+
+}
+/* =========================================
+   MEMORY 03 — STEP COURSE
+   ========================================= */
+
+.memory-three {
+    min-height: 180vh;
+    padding: 180px 25px;
+    overflow: hidden;
+}
+
+
+/* INTRO */
+
+.step-intro {
+    text-align: center;
+}
+
+.memory-three h2 {
+    font-size: clamp(55px, 9vw, 125px);
+    font-weight: 400;
+    line-height: 0.95;
+    letter-spacing: -5px;
+}
+
+.step-opening {
+    margin-top: 40px;
+    font-size: 19px;
+    font-style: italic;
+    opacity: 0.45;
+}
+
+
+/* REVEAL */
+
+.step-reveal {
+    width: min(700px, 90vw);
+    margin: 220px auto 0;
+    text-align: center;
+}
+
+.step-question {
+    font-size: 25px;
+    opacity: 0.7;
+}
+
+
+.step-line {
+    width: 1px;
+    height: 130px;
+    background: rgba(255,255,255,0.2);
+
+    margin: 60px auto;
+}
+
+
+.step-text {
+    font-size: 21px;
+    line-height: 1.9;
+    margin: 100px 0;
+
+    opacity: 0.7;
+}
+
+
+.step-big {
+    margin: 160px 0;
+
+    font-size: clamp(35px, 5vw, 60px);
+    line-height: 1.3;
+
+    opacity: 0.85;
+}
+
+
+.step-big span {
+    display: block;
+    margin-top: 15px;
+
+    font-style: italic;
+}
+
+
+.step-highlight {
+    margin-top: 140px;
+
+    font-size: clamp(45px, 7vw, 85px);
+    font-style: italic;
+}
+
+
+.step-ending {
+    margin-top: 150px;
+
+    font-family: Arial, sans-serif;
+    font-size: 12px;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+
+    opacity: 0.35;
+}
+
+
+/* MOBILE */
+
+@media (max-width: 700px) {
+
+    .memory-three {
+        padding: 120px 20px;
+    }
+
+    .memory-three h2 {
+        letter-spacing: -3px;
+    }
+
+    .step-reveal {
+        margin-top: 140px;
+    }
+
+    .step-text {
+        font-size: 18px;
+        margin: 80px 0;
+    }
+
+}
