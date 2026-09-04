@@ -1,9 +1,27 @@
-const beginBtn = document.getElementById("beginBtn");
+document.addEventListener("DOMContentLoaded", () => {
 
-beginBtn.addEventListener("click", () => {
+    const links = document.querySelectorAll("a");
 
-    document.getElementById("memory").scrollIntoView({
-        behavior: "smooth"
+    links.forEach(link => {
+
+        const href = link.getAttribute("href");
+
+        if (!href || href.startsWith("#")) {
+            return;
+        }
+
+        link.addEventListener("click", event => {
+
+            event.preventDefault();
+
+            document.body.classList.add("page-exit");
+
+            setTimeout(() => {
+                window.location.href = href;
+            }, 450);
+
+        });
+
     });
 
 });
