@@ -1209,7 +1209,7 @@ body.page-exit {
     pointer-events: none;
 
     /* Increased visibility */
-    opacity: 0.32;
+    opacity: 0.50;
 }
 
 .birthday-row {
