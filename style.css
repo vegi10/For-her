@@ -1208,10 +1208,9 @@ body.page-exit {
     z-index: 0;
     pointer-events: none;
 
-    opacity: 0.16;
+    /* Increased visibility */
+    opacity: 0.32;
 }
-
-/* Individual moving rows */
 
 .birthday-row {
     position: absolute;
@@ -1223,14 +1222,13 @@ body.page-exit {
 
     white-space: nowrap;
 
+    /* Soft blur */
     filter: blur(5px);
 
     animation-name: birthdayMoveRight;
     animation-timing-function: linear;
     animation-iteration-count: infinite;
 }
-
-/* Huge background words */
 
 .birthday-row span {
     font-family: "Playfair Display", serif;
@@ -1240,12 +1238,19 @@ body.page-exit {
 
     letter-spacing: -5px;
 
-    color: #ff7eb6;
+    /* Pink */
+    color: #e88aaa;
 
-    opacity: 0.35;
+    /* Visibility */
+    opacity: 0.55;
+
+    /* Very subtle pink glow */
+    text-shadow:
+        0 0 25px rgba(232, 138, 170, 0.25);
 }
 
-/* Position each row */
+
+/* ROW POSITIONS */
 
 .row-1 {
     top: 3%;
@@ -1292,9 +1297,7 @@ body.page-exit {
 }
 
 
-/* =========================================
-   KEEP MAIN CONTENT ABOVE BACKGROUND
-   ========================================= */
+/* KEEP YOUR CONTENT ABOVE IT */
 
 .hero,
 .home,
