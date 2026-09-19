@@ -77,3 +77,14 @@ async function verifyCode() {
 
     }
 }
+document.addEventListener("DOMContentLoaded", () => {
+
+    const accessScreen = document.getElementById("access-screen");
+
+    if (!accessScreen) return;
+
+    if (sessionStorage.getItem("birthday_access") === "granted") {
+        accessScreen.classList.add("access-hidden");
+    }
+
+});
