@@ -28,7 +28,7 @@ document.addEventListener("DOMContentLoaded", () => {
 const ACCESS_API =
     "https://script.google.com/macros/s/AKfycbw1fOJUWt8A33wbIWp06InQ7vdftXjUuoGtJgKRaVJnZdRlP1uh-pk12azAdQ5GjV_NPA/exec";
 
-async function verifyCode() {
+function verifyCode() {
 
     const input = document.getElementById("access-code");
     const message = document.getElementById("access-message");
@@ -41,41 +41,56 @@ async function verifyCode() {
 
     message.textContent = "Checking...";
 
-    try {
-
-        const response = await fetch(
-            ACCESS_API + "?code=" + encodeURIComponent(code)
-        );
-
-        const result = await response.json();
+    window.handleAccessResponse = function(result) {
 
         if (result.success) {
 
-            sessionStorage.setItem("birthday_access", "granted");
+            sessionStorage.setItem(
+                "birthday_access",
+                "granted"
+            );
 
-            document.getElementById("access-screen").classList.add("access-hidden");
+            document
+                .getElementById("access-screen")
+                .classList.add("access-hidden");
 
             message.textContent = "";
 
         } else if (result.message === "USED") {
 
-            message.textContent = "This code has already been used.";
+            message.textContent =
+                "This code has already been used.";
 
         } else if (result.message === "INVALID") {
 
-            message.textContent = "That code isn't correct.";
+            message.textContent =
+                "That code isn't correct.";
 
         } else {
 
-            message.textContent = "Something went wrong. Try again.";
-
+            message.textContent =
+                "Something went wrong. Try again.";
         }
 
-    } catch (error) {
+        // Remove the temporary script
+        const oldScript =
+            document.getElementById("access-check-script");
 
-        message.textContent = "Unable to verify right now.";
+        if (oldScript) {
+            oldScript.remove();
+        }
+    };
 
-    }
+    const script = document.createElement("script");
+
+    script.id = "access-check-script";
+
+    script.src =
+        ACCESS_API +
+        "?code=" +
+        encodeURIComponent(code);
+
+    document.body.appendChild(script);
 }
 document.addEventListener("DOMContentLoaded", () => {
 
