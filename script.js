@@ -85,10 +85,11 @@ function verifyCode() {
 
     script.id = "access-check-script";
 
-    script.src =
-        ACCESS_API +
-        "?code=" +
-        encodeURIComponent(code);
+   script.src =
+    ACCESS_API +
+    "?code=" +
+    encodeURIComponent(code) +
+    "&callback=handleAccessResponse";
 
     document.body.appendChild(script);
 }
