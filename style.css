@@ -1307,3 +1307,108 @@ main {
     position: relative;
     z-index: 2;
 }
+/* =========================
+   ACCESS SCREEN
+========================= */
+
+#access-screen {
+    position: fixed;
+    inset: 0;
+    z-index: 99999;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: #080808;
+    color: #f4f0ea;
+
+    transition:
+        opacity 0.7s ease,
+        visibility 0.7s ease;
+}
+
+.access-box {
+    width: min(90%, 500px);
+    text-align: center;
+}
+
+.access-small {
+    font-size: 11px;
+    letter-spacing: 4px;
+    opacity: 0.5;
+    margin-bottom: 30px;
+}
+
+.access-box h1 {
+    font-family: "Playfair Display", serif;
+    font-size: clamp(40px, 7vw, 72px);
+    font-weight: 400;
+    margin: 0 0 25px;
+}
+
+.access-text {
+    font-size: 15px;
+    line-height: 1.8;
+    opacity: 0.65;
+    margin-bottom: 40px;
+}
+
+#access-code {
+    width: 220px;
+    padding: 14px 10px;
+
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid rgba(244, 240, 234, 0.4);
+
+    color: #f4f0ea;
+    text-align: center;
+
+    font-size: 20px;
+    letter-spacing: 5px;
+
+    outline: none;
+}
+
+#access-code::placeholder {
+    color: rgba(244, 240, 234, 0.35);
+    letter-spacing: 2px;
+}
+
+.access-box button {
+    display: block;
+
+    margin: 30px auto 0;
+
+    background: transparent;
+    border: 1px solid rgba(244, 240, 234, 0.3);
+
+    color: #f4f0ea;
+
+    padding: 12px 28px;
+
+    font-family: "DM Sans", sans-serif;
+    cursor: pointer;
+
+    transition: all 0.3s ease;
+}
+
+.access-box button:hover {
+    background: #f4f0ea;
+    color: #080808;
+}
+
+#access-message {
+    min-height: 20px;
+    margin-top: 20px;
+
+    font-size: 12px;
+    opacity: 0.7;
+}
+
+.access-hidden {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
