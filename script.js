@@ -103,3 +103,12 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
 });
+document.addEventListener("DOMContentLoaded", () => {
+
+    const button = document.getElementById("enter-button");
+
+    if (button) {
+        button.addEventListener("click", verifyCode);
+    }
+
+});
